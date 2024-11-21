@@ -1,42 +1,53 @@
 'use strict';
 
+//======================================= functions =======
 function scoreCheck(score, message) {
-    document.querySelector('#score').textContent = score;
+    scoreText = score;
     if (score > 0) {
-        document.querySelector('#message').textContent = message;
+        messageText.textContent = message;
     } else {
         document.querySelector("body").style.backgroundColor = "red";
-        document.querySelector('#message').textContent = "You Lost!!!";
+        messageText.textContent = "You Lost!!!";
         textColor("black");
         disabling();
     }
 }
-function textColor(color){
-    document.querySelector('#message').style.color = color;
+
+function textColor(color) {
+    messageText.style.color = color;
 }
-function disabling(){
-        document.querySelector('#secret-num').textContent = secretNum;
-        document.querySelector('.check-btn').disabled = true;
-        document.querySelector('#number-guess').disabled = true;
+
+function disabling() {
+    secretNumText.textContent = secretNum;
+    checkBtn.disabled = true;
+    numberGuessText.disabled = true;
 
 }
+
+//===================================== status ============
+let scoreText = document.querySelector('#score').textContent;
+let secretNumText = document.querySelector('#secretNum');
+let messageText = document.querySelector('#message');
+let checkBtn = document.querySelector('.check-btn');
+let numberGuessText = document.querySelector('#number-guess');
 let secretNum = Math.trunc(Math.random() * 100) + 1;
 let score = 100;
-let  highscore = 0;
+let highscore = 0;
 let higherGuess = secretNum + 25;
 let lowerGuess = secretNum - 25;
-document.querySelector('.check-btn').addEventListener('click', function () {
+//====================================== Events ===========
+checkBtn.addEventListener('click', function () {
     const guess = Number(document.querySelector('#number-guess').value);
     if (!guess) {
-        document.querySelector('#message').textContent = "NO Number!";
+        messageText.textContent = "NO Number!";
     } else if (guess === secretNum) {
-        document.querySelector('#message').textContent = "You Won!!!";
+        messageText.textContent = "You Won!!!";
         document.querySelector("body").style.backgroundColor = "#60b347";
-        document.querySelector('#secret-num').style.width = "5em";
-       if (score > highscore) {
-          highscore = score;
-           document.querySelector('#highscore').textContent = highscore;
-       }
+        secretNumText.style.width = "5em";
+        if (score > highscore) {
+            highscore = score;
+            document.querySelector('#highscore').textContent = highscore;
+        }
         textColor("green");
 
     } else if (guess < lowerGuess) {
@@ -63,11 +74,11 @@ document.querySelector('.again-btn').addEventListener('click', function () {
     higherGuess = secretNum + 25;
     lowerGuess = secretNum - 25;
     textColor("white");
-    document.querySelector('#score').textContent = score;
-    document.querySelector('#secret-num').textContent = "?";
-    document.querySelector('.check-btn').disabled = false;
-    document.querySelector('#number-guess').disabled = false;
+    scoreText = score;
+    secretNumText.textContent = "?";
+    checkBtn.disabled = false;
+    numberGuessText.disabled = false;
     document.querySelector("body").style.backgroundColor = "#222";
-    document.querySelector('#secret-num').style.width = "3em";
-    document.querySelector('#message').textContent = "Start guessing...";
+    secretNumText.style.width = "3em";
+    messageText.textContent = "Start guessing...";
 })
