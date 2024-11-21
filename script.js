@@ -1,8 +1,9 @@
 'use strict';
 
 //======================================= functions =======
+
 function scoreCheck(score, message) {
-    scoreText = score;
+    scoreText.textContent = score;
     if (score > 0) {
         messageText.textContent = message;
     } else {
@@ -25,19 +26,23 @@ function disabling() {
 }
 
 //===================================== status ============
-let scoreText = document.querySelector('#score').textContent;
-let secretNumText = document.querySelector('#secretNum');
+
+let scoreText = document.querySelector('#score');
+let secretNumText = document.querySelector('#secret-num');
 let messageText = document.querySelector('#message');
 let checkBtn = document.querySelector('.check-btn');
+let againBtn = document.querySelector('.again-btn');
 let numberGuessText = document.querySelector('#number-guess');
 let secretNum = Math.trunc(Math.random() * 100) + 1;
 let score = 100;
 let highscore = 0;
 let higherGuess = secretNum + 25;
 let lowerGuess = secretNum - 25;
+
 //====================================== Events ===========
+
 checkBtn.addEventListener('click', function () {
-    const guess = Number(document.querySelector('#number-guess').value);
+    const guess = Number(numberGuessText.value);
     if (!guess) {
         messageText.textContent = "NO Number!";
     } else if (guess === secretNum) {
@@ -68,13 +73,13 @@ checkBtn.addEventListener('click', function () {
         scoreCheck(score, "Higher!!")
     }
 })
-document.querySelector('.again-btn').addEventListener('click', function () {
+againBtn.addEventListener('click', function () {
     score = 100;
     secretNum = Math.trunc(Math.random() * 100) + 1;
     higherGuess = secretNum + 25;
     lowerGuess = secretNum - 25;
     textColor("white");
-    scoreText = score;
+    scoreText.textContent = score;
     secretNumText.textContent = "?";
     checkBtn.disabled = false;
     numberGuessText.disabled = false;
