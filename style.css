@@ -1,34 +1,54 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
-*, ::after , ::before{
+::selection{
+    background-color: black;
+    color: red;
+}
+*, ::after, ::before {
     box-sizing: border-box;
     font-family: 'Press Start 2P', sans-serif;
 }
-body{
+
+body {
     margin: 0;
     padding: 0;
     background-color: #222222;
     height: 100vh;
     color: white;
 }
-header{
+.btn{
+    text-align: center;
+    padding: 1em 1.5em;
+    border: none;
+}
+.btn:hover{
+    opacity: 0.8;
+}
+header {
     padding: 20px;
 }
-#top-header{
+
+#top-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2em;
 }
-#top-header #reset-btn{
-padding: 1em 1.3em;
+
+#top-header #reset-btn {
+    padding: 1em 1.3em;
+    border: none;
+    color: #222;
 }
-#top-header p{
+
+#top-header p {
     font-size: .6rem;
 }
-header h1{
+
+header h1 {
     font-size: 1.7rem;
     text-align: center;
 }
-#question-mark{
+
+#question-mark {
     position: relative;
     display: flex;
     justify-content: center;
@@ -38,9 +58,10 @@ header h1{
     background-color: white;
     color: #222;
     font-size: 2.5rem;
-    margin: 1em auto 0;
+    margin: 1em auto ;
 }
-#question-mark::after{
+
+#question-mark::after {
     content: "";
     display: inline-block;
     position: absolute;
@@ -48,4 +69,37 @@ header h1{
     width: 100vw;
     height: 10px;
     background-color: white;
+}
+section{
+    display: flex;
+    justify-content: center;
+    gap: 15em;
+}
+#left,#right{
+    width: 50em;
+    display: flex;
+    flex-direction: column;
+}
+#left{
+   align-items: center;
+}
+#left #number-guess {
+    display: block;
+    text-align: center;
+    width: 180px;
+    height: 90px;
+    font-size: 3rem;
+    background-color: #222;
+    color: white;
+    border: 3px solid white;
+    margin-bottom: .5em;
+}
+#left #number-guess:focus{
+    outline: none;
+}
+#right #start-guessing{
+    margin-bottom: 5em;
+}
+#right p{
+    font-size: .8rem;
 }

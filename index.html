@@ -8,16 +8,32 @@
 <body>
 <header>
     <div id="top-header">
-    <button id="reset-btn">
-        Again!
-    </button>
-    <p id="between">(between 1 and 20)</p>
+        <button class="btn">
+            Again!
+        </button>
+        <p id="between">(between 1 and 20)</p>
     </div>
     <h1>Guess My Number!</h1>
     <p id="question-mark">?</p>
 </header>
 <main>
-    <section></section>
+    <section>
+        <div id="left">
+            <input type="number" value="1" min="0" max="20" id="number-guess">
+            <button class="btn">
+                Check!
+            </button>
+        </div>
+        <div id="right">
+            <p id="start-guessing">
+                Start guessing...
+            </p>
+            <p>
+                💯 Score: <span id="score">20</span>
+            </p>
+            <p> 🥇 Highscore: <span id="highscore">17</span></p>
+        </div>
+    </section>
 </main>
 <script src="script.js"></script>
 </body>
