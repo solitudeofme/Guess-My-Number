@@ -47,9 +47,9 @@ checkBtn.addEventListener('click', function () {
         messageText.textContent = "NO Number!";
     } else if (guess === secretNum) {
         messageText.textContent = "You Won!!!";
-        secretNumText.textContent = secretNum;
         document.querySelector("body").style.backgroundColor = "#60b347";
         secretNumText.style.width = "5em";
+        disabling();
         if (score > highscore) {
             highscore = score;
             document.querySelector('#highscore').textContent = highscore;
