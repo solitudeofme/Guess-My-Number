@@ -48,7 +48,7 @@ checkBtn.addEventListener('click', function () {
     } else if (guess === secretNum) {
         messageText.textContent = "You Won!!!";
         document.querySelector("body").style.backgroundColor = "#60b347";
-        secretNumText.style.width = "5em";
+        secretNumText.style.width = "7em";
         disabling();
         if (score > highscore) {
             highscore = score;
@@ -85,6 +85,6 @@ againBtn.addEventListener('click', function () {
     checkBtn.disabled = false;
     numberGuessText.disabled = false;
     document.querySelector("body").style.backgroundColor = "#222";
-    secretNumText.style.width = "3em";
+    secretNumText.style.width = "4em";
     messageText.textContent = "Start guessing...";
 })
