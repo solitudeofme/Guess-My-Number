@@ -38,7 +38,10 @@ header {
     border: none;
     color: #222;
 }
-
+#top-header #between{
+    text-align: center;
+    line-height: 1.5;
+}
 #top-header p {
     font-size: .6rem;
 }
@@ -48,20 +51,20 @@ header h1 {
     text-align: center;
 }
 
-#question-mark {
+#secret-num {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 80px;
+    width: 3em;
+    height: 2.5em;
     background-color: white;
     color: #222;
     font-size: 2.5rem;
     margin: 1em auto ;
 }
 
-#question-mark::after {
+#secret-num::after {
     content: "";
     display: inline-block;
     position: absolute;
@@ -83,6 +86,9 @@ section{
 #left{
    align-items: center;
 }
+.check-btn:disabled{
+    opacity: 0;
+}
 #left #number-guess {
     display: block;
     text-align: center;
@@ -97,8 +103,9 @@ section{
 #left #number-guess:focus{
     outline: none;
 }
-#right #start-guessing{
-    margin-bottom: 5em;
+#right #message{
+    margin-bottom: 4em;
+    font-size: 1rem;
 }
 #right p{
     font-size: .8rem;
